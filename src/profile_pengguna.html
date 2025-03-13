@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Pengguna - E-Rapor Ghama Charaka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="components/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="custom.css" />
+    <style>
+      .profile-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .profile-picture-container {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .profile-picture {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-picture-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .profile-picture-container:hover .profile-picture-overlay {
+        opacity: 1;
+      }
+
+      .upload-btn {
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .upload-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .profile-info {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-item {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .info-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .info-label {
+        font-weight: 600;
+        color: #6c757d;
+        margin-bottom: 0.5rem;
+      }
+
+      .info-value {
+        color: #212529;
+      }
+
+      .edit-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .edit-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header dengan Nav -->
+    <header>
+      <a href="beranda.html"><i class="fa-solid fa-user user-login"></i></a>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <div class="d-flex flex-column flex-md-row align-items-center w-100">
+            <a class="navbar-brand" href="beranda.html">
+              <img
+                src="assets/ghama_caraka_logo-removebg-preview.png"
+                alt="Logo Ghama Caraka"
+                class="ghama-logo"
+                style="height: 50px; margin-right: 10px"
+              />
+              <span class="text-danger">e</span>-Rapor
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="beranda-section">
+      <aside id="sidebar">
+        <!-- Sidebar -->
+        <div class="menu-item">
+          <i class="fa-solid fa-home"></i>
+          <a href="beranda.html" class="text-dark">Beranda</a>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="text-dark">
+            <div class="menu-item dropdown">
+              <i class="fa-solid fa-file-lines"></i>
+              <a
+                href="#"
+                class="text-dark dropdown-toggle"
+                id="nilaiDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Referensi
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="nilaiDropdown">
+                <li>
+                  <a class="dropdown-item" href="refrensi.html"
+                    ><i class="fa-solid fa-list-ul"></i>Daftar Siswa</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="TujuanPembelajaran.html"
+                    ><i class="fa-solid fa-list-ul"></i>Tujuan Pembelajaran</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="LingkupMateri.html"
+                    ><i class="fa-solid fa-list-ul"></i>Lingkup Materi</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="refrensi.html" class="text-dark">
+            <div class="menu-item dropdown">
+              <i class="fa-solid fa-book"></i>
+              <a
+                href="#"
+                class="text-dark dropdown-toggle"
+                id="nilaiDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Nilai Akademik
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="nilaiDropdown">
+                <li>
+                  <a class="dropdown-item" href="AsesmenSumatif.html"
+                    ><i class="fa-solid fa-list-ul"></i>Asesmen Sumatif</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="AsesmenFormatif.html"
+                    ><i class="fa-solid fa-list-ul"></i>Asesmen Formarif</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="NilaiAkhir.html"
+                    ><i class="fa-solid fa-list-ul"></i>Nilai Akhir</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-book-open"></i>
+          <a href="rapot.html" class="text-dark">Rapot</a>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-user"></i>
+          <a href="profile_pengguna.html" class="text-dark">Profil Pengguna</a>
+        </div>
+      </aside>
+
+      <!-- Tombol Toggle -->
+      <button class="toggle-btn" id="toggleBtn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <!-- Konten utama -->
+      <div class="main-content" style="background-color: #ec221f">
+        <div class="profile-container">
+          <div class="profile-header">
+            <div class="profile-picture-container position-relative">
+              <img
+                src="assets/default-profile.png"
+                class="profile-picture"
+                id="profileImage"
+              />
+              <div class="profile-picture-overlay">
+                <label for="profilePicInput" class="upload-btn">
+                  <i class="fas fa-camera"></i>
+                </label>
+                <input
+                  type="file"
+                  id="profilePicInput"
+                  accept="image/*"
+                  style="display: none"
+                  onchange="handleProfilePicChange(event)"
+                />
+              </div>
+            </div>
+            <h2>Profil Pengguna</h2>
+          </div>
+
+          <div class="profile-info">
+            <div class="info-item">
+              <div class="info-label">Nama Lengkap</div>
+              <div class="info-value">....</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">NIP</div>
+              <div class="info-value">....</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Jabatan</div>
+              <div class="info-value">....</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Email</div>
+              <div class="info-value">....</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">No. Telepon</div>
+              <div class="info-value">+62</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Alamat</div>
+              <div class="info-value">....</div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button class="edit-button">
+              <i class="fas fa-edit me-2"></i>Edit Profil
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="components/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="profile_pengguna.js"></script>
+  </body>
+</html>
