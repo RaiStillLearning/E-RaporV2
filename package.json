@@ -6,5 +6,13 @@
   },
   "scripts": {
     "start": "serve ."
-  }
+  },
+  "name": "e-raporv2",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD\r # E-RaporV2\r =======\r # E-Rapor\r >>>>>>> 2afb0b5 (E-Rapor)",
+  "main": "src/beranda.html",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
