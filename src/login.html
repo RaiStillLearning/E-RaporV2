@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log-in</title>
+    <link
+      rel="stylesheet"
+      href="components/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img class="logo img-fluid" src="logo gamcak.jpg" alt="" />
+      <h1><span>e</span>-Rapor</h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm-12">
+          <div class="login">
+            <img class="bocah img-fluid" src="gambar bocah.png" alt="" />
+            <form id="loginForm">
+              <div class="login-text mb-4">
+                <h2 class="m-3 text-center">Login E-Rapor</h2>
+                <div id="emailHelp" class="form-text">
+                  Silakan login untuk dapat mengakses aplikasi
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label w-100"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label w-100"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="tahunAjaran">Pilih Tahun Ajaran:</label>
+                <select id="tahunAjaran"></select>
+              </div>
+              <br />
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >Simpan Login</label
+                >
+              </div>
+              <br />
+              <button
+                type="submit"
+                class="btn btn-danger w-100"
+                onclick="login()"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="components/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const tahunAjaran = document.getElementById("tahunAjaran");
+      const tahunSekarang = new Date().getFullYear();
+
+      for (let tahun = 2000; tahun <= tahunSekarang; tahun++) {
+        let option = document.createElement("option");
+        option.value = `${tahun}/${tahun + 1}`;
+        option.textContent = `${tahun}/${tahun + 1}`;
+        tahunAjaran.appendChild(option);
+      }
+
+      const form = document.getElementById("loginForm");
+      function login() {
+        const username = document.getElementById("exampleInputEmail1").value;
+        const password = document.getElementById("exampleInputPassword1").value;
+
+        if (username === "admin" && password === "1234") {
+          alert("Login Berhasil!");
+          window.location.href = "beranda.html";
+        } else {
+          alert("Username atau Password salah!");
+        }
+      }
+    </script>
+  </body>
+</html>
